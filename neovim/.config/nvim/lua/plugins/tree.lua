@@ -12,7 +12,7 @@ return {
       },
     },
     init = function()
-      vim.keymap.set('n', '<leader>e', '<CMD>Oil --float<CR>', { desc = 'File explorer' })
+      vim.keymap.set('n', '<leader>e', '<CMD>Oil<CR>', { desc = 'File explorer' })
     end,
   },
 }
