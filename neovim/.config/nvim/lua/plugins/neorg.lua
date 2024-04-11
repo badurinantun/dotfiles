@@ -28,6 +28,7 @@ return {
               neorg_leader = '<Leader>',
             },
           },
+          ['core.summary'] = {},
           ['core.dirman'] = {
             config = {
               workspaces = {
