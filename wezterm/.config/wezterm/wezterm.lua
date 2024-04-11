@@ -1,8 +1,7 @@
 local wezterm = require 'wezterm'
 local keys = require 'keys'
-local neobones_light = require 'color_schemes.neobones_light'
-local neobones_dark = require 'color_schemes.neobones_dark'
-local kanagawabones = require 'color_schemes.kanagawabones'
+local rosebones_light = require 'color_schemes.rosebones_light'
+local rosebones_dark = require 'color_schemes.rosebones_dark'
 
 local config = wezterm.config_builder()
 
@@ -23,9 +22,9 @@ config.window_decorations = 'RESIZE'
 -- colors
 local function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'neobones_dark'
+    return 'rosebones_dark'
   else
-    return 'neobones_light'
+    return 'rosebones_light'
   end
 end
 
@@ -40,9 +39,8 @@ wezterm.on('window-config-reloaded', function(window)
 end)
 
 config.color_schemes = {
-  ['neobones_light'] = neobones_light,
-  ['kanagawabones'] = kanagawabones,
-  ['neobones_dark'] = neobones_dark,
+  ['rosebones_light'] = rosebones_light,
+  ['rosebones_dark'] = rosebones_dark,
 }
 
 -- keys

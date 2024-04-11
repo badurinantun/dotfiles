@@ -3,7 +3,8 @@ return {
     'mcchrish/zenbones.nvim',
     priority = 1000,
     init = function()
-      vim.cmd.colorscheme 'neobones'
+      vim.cmd.colorscheme 'rosebones'
+      vim.g.rosebones = { darkness = 'warm' }
 
       local auto_dark_mode = require 'auto-dark-mode'
       auto_dark_mode.setup {
