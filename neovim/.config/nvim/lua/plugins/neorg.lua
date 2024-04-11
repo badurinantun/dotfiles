@@ -19,6 +19,21 @@ return {
       require('neorg').setup {
         load = {
           ['core.defaults'] = {},
+          ['core.esupports.metagen'] = {
+            config = {
+              type = 'empty',
+              template = {
+                {
+                  'title',
+                  function()
+                    return vim.fn.expand '%:p:t:r'
+                  end,
+                },
+                { 'description', '' },
+                { 'categories', '' },
+              },
+            },
+          },
           ['core.completion'] = { config = { engine = 'nvim-cmp', name = '[Norg]' } },
           ['core.integrations.nvim-cmp'] = {},
           ['core.concealer'] = { config = { folds = false, icon_preset = 'diamond' } },
