@@ -96,7 +96,6 @@ return {
           vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename' })
           vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code action' })
           vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, { desc = 'Hover' })
-          vim.keymap.set('n', '<leader>m', '<cmd>Mason<CR>', { desc = 'Mason' })
 
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.server_capabilities.documentHighlightProvider then
