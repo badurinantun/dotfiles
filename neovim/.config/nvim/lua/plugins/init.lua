@@ -13,6 +13,9 @@ return {
         h = {
           name = 'Harpoon',
         },
+        n = {
+          name = 'Neorg',
+        },
       }, {
         prefix = '<leader>',
       })
