@@ -62,6 +62,13 @@ return {
         miniBufferremove.delete()
       end, { desc = 'Close buffer' })
 
+      vim.keymap.set('n', '<leader>W', function()
+        local buffers = vim.api.nvim_list_bufs()
+        for _, buf in ipairs(buffers) do
+          miniBufferremove.delete(buf)
+        end
+      end, { desc = 'Close all buffers' })
+
       local statusline = require 'mini.statusline'
       statusline.setup { use_icons = false }
 
