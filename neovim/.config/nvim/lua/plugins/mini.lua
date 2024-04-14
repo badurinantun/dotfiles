@@ -12,7 +12,7 @@ local modes = setmetatable({
   ['S'] = { long = 'S-Line', short = 'S-L', hl = 'MiniStatuslineModeVisual' },
   [CTRL_S] = { long = 'S-Block', short = 'S-B', hl = 'MiniStatuslineModeVisual' },
   ['i'] = { long = 'Insert', short = 'INS', hl = 'MiniStatuslineModeInsert' },
-  ['R'] = { long = 'Replace', short = 'R', hl = 'MiniStatuslineModeReplace' },
+  ['R'] = { long = 'Replace', short = 'RPL', hl = 'MiniStatuslineModeReplace' },
   ['c'] = { long = 'Command', short = 'CMD', hl = 'MiniStatuslineModeCommand' },
   ['r'] = { long = 'Prompt', short = '-P-', hl = 'MiniStatuslineModeOther' },
   ['!'] = { long = 'Shell', short = 'SH-', hl = 'MiniStatuslineModeOther' },
