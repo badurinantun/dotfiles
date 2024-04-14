@@ -1,3 +1,5 @@
+local M = {}
+
 local colors = {
   foreground = '#e0def4',
   background = '#232136',
@@ -35,4 +37,7 @@ scheme.tab_bar = {
   },
 }
 
-return scheme
+M.scheme = scheme
+M.colors = colors
+
+return M

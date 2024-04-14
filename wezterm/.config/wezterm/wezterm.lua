@@ -32,6 +32,15 @@ wezterm.on('window-config-reloaded', function(window)
   local overrides = window:get_config_overrides() or {}
   local appearance = window:get_appearance()
   local scheme = scheme_for_appearance(appearance)
+
+  if scheme == 'rosebones_light' then
+    overrides.command_palette_bg_color = rosebones_dark.colors.background
+    overrides.command_palette_fg_color = rosebones_dark.colors.foreground
+  else
+    overrides.command_palette_bg_color = rosebones_light.colors.background
+    overrides.command_palette_fg_color = rosebones_light.colors.foreground
+  end
+
   if overrides.color_scheme ~= scheme then
     overrides.color_scheme = scheme
     window:set_config_overrides(overrides)
@@ -39,8 +48,8 @@ wezterm.on('window-config-reloaded', function(window)
 end)
 
 config.color_schemes = {
-  ['rosebones_light'] = rosebones_light,
-  ['rosebones_dark'] = rosebones_dark,
+  ['rosebones_light'] = rosebones_light.scheme,
+  ['rosebones_dark'] = rosebones_dark.scheme,
 }
 
 -- keys
