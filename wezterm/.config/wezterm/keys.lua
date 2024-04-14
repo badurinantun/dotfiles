@@ -65,17 +65,23 @@ return {
     mods = 'SUPER|SHIFT',
     action = action.ActivateTabRelative(1),
   },
-  -- command palette
-  {
-    key = 'P',
-    mods = 'CTRL|SHIFT',
-    action = action.ActivateCommandPalette,
-  },
   -- copy mode
   {
-    key = 'X',
-    mods = 'CTRL|SHIFT',
+    key = 'Y',
+    mods = 'SUPER|SHIFT',
     action = action.ActivateCopyMode,
+  },
+  -- quick select
+  {
+    key = 'Space',
+    mods = 'CTRL|SHIFT',
+    action = action.QuickSelect,
+  },
+  -- clear
+  {
+    key = 'K',
+    mods = 'CTRL|SHIFT',
+    action = action.ClearScrollback 'ScrollbackAndViewport',
   },
   -- panes
   {
