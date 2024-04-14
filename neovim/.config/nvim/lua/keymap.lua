@@ -11,6 +11,3 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', 'j', 'jzz')
 vim.keymap.set('n', 'k', 'kzz')
-
--- Disable macros, remap later
-vim.keymap.set('n', 'q', '<Nop>')
