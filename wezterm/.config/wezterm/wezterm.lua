@@ -53,6 +53,7 @@ config.color_schemes = {
 }
 
 -- keys
+config.disable_default_key_bindings = true
 config.keys = keys
 
 return config
