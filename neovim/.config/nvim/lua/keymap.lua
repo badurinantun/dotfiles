@@ -11,3 +11,7 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', 'j', 'jzz')
 vim.keymap.set('n', 'k', 'kzz')
+
+-- Macros
+vim.keymap.set('n', 'Q', '@qj')
+vim.keymap.set('x', 'Q', ':norm @q<CR>')
