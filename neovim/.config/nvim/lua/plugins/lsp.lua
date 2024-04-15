@@ -88,10 +88,12 @@ return {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
 
         callback = function(event)
-          vim.keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = 'Go to defintion' })
-          vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = 'Go to references' })
-          vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, { desc = 'Symbols' })
-          vim.keymap.set('n', '<leader>ps', require('telescope.builtin').lsp_workspace_symbols, { desc = 'Symbols' })
+          local builtin = require 'telescope.builtin'
+          vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = 'Go to defintion' })
+          vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'Go to references' })
+          vim.keymap.set('n', '<leader>dd', builtin.diagnostics, { desc = 'Diagnostics' })
+          vim.keymap.set('n', '<leader>ds', builtin.lsp_document_symbols, { desc = 'Symbols' })
+          vim.keymap.set('n', '<leader>ps', builtin.lsp_workspace_symbols, { desc = 'Symbols' })
           vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename' })
           vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = 'Code action' })
           vim.keymap.set('n', '<leader>k', vim.lsp.buf.hover, { desc = 'Hover' })
