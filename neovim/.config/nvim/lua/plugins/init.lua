@@ -16,6 +16,12 @@ return {
         n = {
           name = 'Neorg',
         },
+        d = {
+          name = 'Document',
+        },
+        p = {
+          name = 'Project',
+        },
       }, {
         prefix = '<leader>',
       })
