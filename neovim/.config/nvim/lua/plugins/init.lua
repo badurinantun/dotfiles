@@ -38,4 +38,5 @@ return {
       vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Undotree' })
     end,
   },
+  { 'kevinhwang91/nvim-bqf' },
 }
