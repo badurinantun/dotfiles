@@ -27,14 +27,14 @@ return {
       end, { desc = 'Harpoon list' })
 
       -- Previous
-      vim.keymap.set('n', '<leader>hp', function()
+      vim.keymap.set('n', '[h', function()
         harpoon:list():prev()
-      end, { desc = 'Previous' })
+      end, { desc = 'Harpoon previous' })
 
       -- Next
-      vim.keymap.set('n', '<leader>hn', function()
+      vim.keymap.set('n', ']h', function()
         harpoon:list():next()
-      end, { desc = 'Next' })
+      end, { desc = 'Harpoon next' })
 
       -- Quick select
       vim.keymap.set('n', '<leader>hh', function()
