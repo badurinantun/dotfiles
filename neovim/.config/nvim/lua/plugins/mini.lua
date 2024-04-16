@@ -51,21 +51,24 @@ return {
       require('mini.jump').setup()
       require('mini.surround').setup()
       require('mini.pairs').setup()
-      require('mini.notify').setup()
       require('mini.move').setup()
 
-      local miniBufferremove = require 'mini.bufremove'
+      local MiniNotifty = require 'mini.notify'
+      MiniNotifty.setup()
+      vim.notify = MiniNotifty.make_notify {}
 
-      miniBufferremove.setup()
+      local MiniBufferremove = require 'mini.bufremove'
+
+      MiniBufferremove.setup()
 
       vim.keymap.set('n', '<leader>w', function()
-        miniBufferremove.delete()
+        MiniBufferremove.delete()
       end, { desc = 'Close buffer' })
 
       vim.keymap.set('n', '<leader>W', function()
         local buffers = vim.api.nvim_list_bufs()
         for _, buf in ipairs(buffers) do
-          miniBufferremove.delete(buf)
+          MiniBufferremove.delete(buf)
         end
       end, { desc = 'Close all buffers' })
 

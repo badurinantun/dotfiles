@@ -1,24 +1,31 @@
+local notify = function(msg)
+  vim.notify('Harpoon: ' .. msg, vim.log.levels.INFO)
+end
+
 return {
   {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-      -- Append
+      -- Add
       local harpoon = require 'harpoon'
 
       vim.keymap.set('n', '<leader>ha', function()
         harpoon:list():add()
+        notify 'Added '
       end, { desc = 'Add' })
 
       -- Remove
       vim.keymap.set('n', '<leader>hr', function()
         harpoon:list():remove()
+        notify 'Removed'
       end, { desc = 'Remove' })
 
       -- Clear
       vim.keymap.set('n', '<leader>hc', function()
         harpoon:list():clear()
+        notify 'Cleared'
       end, { desc = 'Clear' })
 
       -- Harpoon menu
