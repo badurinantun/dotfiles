@@ -46,3 +46,6 @@ vim.opt.hlsearch = true
 
 -- Wildmenu
 vim.opt.wildoptions = 'fuzzy'
+
+-- Hidden
+vim.opt.hidden = false
