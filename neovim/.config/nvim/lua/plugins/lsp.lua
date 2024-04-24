@@ -125,6 +125,7 @@ return {
         'typescript-language-server',
         'tailwindcss-language-server',
         'eslint-lsp',
+        'rust-analyzer',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -158,6 +159,7 @@ return {
         },
       },
       formatters_by_ft = {
+        rust = { 'rustfmt' },
         lua = { 'stylua' },
         javascript = { 'prettier' },
         typescriptreact = { 'prettier' },
