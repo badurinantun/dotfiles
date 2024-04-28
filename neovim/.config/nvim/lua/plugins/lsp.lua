@@ -3,6 +3,15 @@ local language_servers = {
   eslint = {},
   tsserver = {},
   gopls = {},
+  rust_analyzer = {
+    settings = {
+      ['rust-analyzer'] = {
+        checkOnSave = {
+          command = 'clippy',
+        },
+      },
+    },
+  },
   lua_ls = {
     settings = {
       Lua = {
