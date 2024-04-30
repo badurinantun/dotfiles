@@ -2,7 +2,6 @@ local language_servers = {
   tailwindcss = {},
   eslint = {},
   tsserver = {},
-  gopls = {},
   rust_analyzer = {
     settings = {
       ['rust-analyzer'] = {
