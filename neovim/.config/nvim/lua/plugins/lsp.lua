@@ -2,6 +2,12 @@ local language_servers = {
   tailwindcss = {},
   eslint = {},
   tsserver = {},
+  clangd = {
+    cmd = {
+      'clangd',
+      '--offset-encoding=utf-16',
+    },
+  },
   rust_analyzer = {
     settings = {
       ['rust-analyzer'] = {
@@ -172,6 +178,7 @@ return {
         javascript = { 'prettier' },
         typescriptreact = { 'prettier' },
         typescript = { 'prettier' },
+        c = { 'clang-format' },
       },
     },
   },
