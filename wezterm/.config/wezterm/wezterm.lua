@@ -20,24 +20,7 @@ config.tab_bar_at_bottom = false
 config.window_decorations = 'RESIZE'
 
 -- colors
-local function scheme_for_appearance(appearance)
-  if appearance:find 'Dark' then
-    return 'rosebones_dark'
-  else
-    return 'rosebones_light'
-  end
-end
-
-wezterm.on('window-config-reloaded', function(window)
-  local overrides = window:get_config_overrides() or {}
-  local appearance = window:get_appearance()
-  local scheme = scheme_for_appearance(appearance)
-
-  if overrides.color_scheme ~= scheme then
-    overrides.color_scheme = scheme
-    window:set_config_overrides(overrides)
-  end
-end)
+config.color_scheme = 'rosebones_dark'
 
 config.color_schemes = {
   ['rosebones_light'] = rosebones_light.scheme,
