@@ -1,4 +1,5 @@
 local language_servers = {
+  astro = {},
   tailwindcss = {},
   eslint = {},
   tsserver = {},
