@@ -1,5 +1,11 @@
 local language_servers = {
-  astro = {},
+  astro = {
+    init_options = {
+      typescript = {
+        tsdk = vim.fs.normalize '~/Library/pnpm/global/5/node_modules/typescript/lib',
+      },
+    },
+  },
   tailwindcss = {},
   eslint = {},
   tsserver = {},
