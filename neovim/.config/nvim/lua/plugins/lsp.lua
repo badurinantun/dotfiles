@@ -135,7 +135,7 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-      for server_name, server in pairs(language_servers) do
+      for server_name, _ in pairs(language_servers) do
         local server = language_servers[server_name] or {}
         server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
         require('lspconfig')[server_name].setup(server)
@@ -150,7 +150,7 @@ return {
       notify_on_error = false,
       format_on_save = function()
         return {
-          timeout_ms = 500,
+          timeout_ms = 1000,
           lsp_fallback = true,
         }
       end,
@@ -162,6 +162,7 @@ return {
       formatters_by_ft = {
         rust = { 'rustfmt' },
         lua = { 'stylua' },
+        astro = { 'prettier' },
         javascript = { 'prettier' },
         typescriptreact = { 'prettier' },
         typescript = { 'prettier' },
