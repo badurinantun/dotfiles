@@ -7,6 +7,7 @@ local config = wezterm.config_builder()
 
 -- general
 config.font_size = 12.0
+config.enable_wayland = false
 
 -- tabs
 config.tab_max_width = 64
