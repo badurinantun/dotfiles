@@ -17,7 +17,9 @@ config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = false
 
 -- window
+config.window_background_opacity = 0.95
 config.window_decorations = 'RESIZE'
+config.macos_window_background_blur = 20
 
 -- colors
 config.color_scheme = 'rosebones_dark'
