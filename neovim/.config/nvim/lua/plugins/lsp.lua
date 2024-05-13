@@ -33,6 +33,7 @@ local language_servers = {
       },
     },
   },
+  zls = {},
 }
 
 return {
