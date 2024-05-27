@@ -1,7 +1,5 @@
 local wezterm = require 'wezterm'
 local keys = require 'keys'
-local rosebones_light = require 'color_schemes.rosebones_light'
-local rosebones_dark = require 'color_schemes.rosebones_dark'
 
 local config = wezterm.config_builder()
 
@@ -18,16 +16,13 @@ config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = false
 
 -- window
-config.window_background_opacity = 0.95
 config.window_decorations = 'RESIZE'
-config.macos_window_background_blur = 20
 
 -- colors
-config.color_scheme = 'rosebones_dark'
+config.color_scheme = 'zenburned'
 
 config.color_schemes = {
-  ['rosebones_light'] = rosebones_light.scheme,
-  ['rosebones_dark'] = rosebones_dark.scheme,
+  ['zenburned'] = require('color_schemes.zenburned').scheme,
 }
 
 -- keys
