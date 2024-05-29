@@ -11,7 +11,9 @@ return {
     config = true,
   },
   {
+
     'nvim-neorg/neorg',
+    enabled = vim.loop.os_uname().sysname == "Darwin",
     dependencies = { 'luarocks.nvim' },
     lazy = false,
     version = '*',
