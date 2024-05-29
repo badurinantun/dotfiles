@@ -1,6 +1,14 @@
 local wezterm = require 'wezterm'
 local keys = require 'keys'
 
+wezterm.on('update-right-status', function(window)
+  local leader = ''
+  if window:leader_is_active() then
+    leader = '<LEADER>'
+  end
+  window:set_right_status(leader)
+end)
+
 local config = wezterm.config_builder()
 
 -- general
@@ -27,6 +35,7 @@ config.color_schemes = {
 
 -- keys
 config.disable_default_key_bindings = true
+config.leader = { key = ' ', mods = 'CTRL', timeout_milliseconds = 1500 }
 config.keys = keys
 
 return config

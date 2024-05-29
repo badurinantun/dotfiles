@@ -4,129 +4,93 @@ local action = wezterm.action
 return {
   {
     key = 'q',
-    mods = 'SUPER',
+    mods = 'LEADER',
     action = action.QuitApplication,
   },
   -- clipboard
   {
-    key = 'c',
-    mods = 'SUPER',
+    key = 'C',
+    mods = 'SHIFT|CTRL',
     action = action.CopyTo 'Clipboard',
   },
   {
-    key = 'c',
-    mods = 'SUPER|CTRL',
-    action = action.CopyTo 'Clipboard',
-  },
-  {
-    key = 'v',
-    mods = 'SUPER',
+    key = 'V',
+    mods = 'SHIFT|CTRL',
     action = action.PasteFrom 'Clipboard',
-  },
-  {
-    key = 'v',
-    mods = 'SUPER|CTRL',
-    action = action.PasteFrom 'Clipboard',
-  },
-  -- font size
-  {
-    key = '-',
-    mods = 'SUPER',
-    action = action.DecreaseFontSize,
-  },
-  {
-    key = '=',
-    mods = 'SUPER',
-    action = action.IncreaseFontSize,
-  },
-  {
-    key = '0',
-    mods = 'SUPER',
-    action = action.ResetFontSize,
   },
   --tabs
   {
     key = 't',
-    mods = 'SUPER',
+    mods = 'LEADER',
     action = action.SpawnTab 'CurrentPaneDomain',
   },
   {
     key = 'w',
-    mods = 'SUPER',
+    mods = 'LEADER',
     action = action.CloseCurrentTab { confirm = true },
   },
+  -- TODO: see if it works on Linux
   {
     key = '[',
-    mods = 'SUPER|SHIFT',
+    mods = 'LEADER',
     action = action.ActivateTabRelative(-1),
   },
   {
     key = ']',
-    mods = 'SUPER|SHIFT',
+    mods = 'LEADER',
     action = action.ActivateTabRelative(1),
   },
   -- copy mode
   {
-    key = 'Y',
-    mods = 'SUPER|SHIFT',
+    key = 'y',
+    mods = 'LEADER',
     action = action.ActivateCopyMode,
   },
   -- quick select
   {
-    key = 'Space',
-    mods = 'CTRL|SHIFT',
+    key = 's',
+    mods = 'LEADER',
     action = action.QuickSelect,
-  },
-  -- clear
-  {
-    key = 'K',
-    mods = 'CTRL|SHIFT',
-    action = action.ClearScrollback 'ScrollbackAndViewport',
   },
   -- panes
   {
     key = '-',
-    mods = 'SHIFT|SUPER',
+    mods = 'LEADER',
     action = action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
   {
     key = '=',
-    mods = 'SHIFT|SUPER',
+    mods = 'LEADER',
     action = action.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   {
-    key = 'w',
-    mods = 'SHIFT|SUPER',
+    key = 'x',
+    mods = 'LEADER',
     action = action.CloseCurrentPane { confirm = true },
   },
   {
-    key = 'p',
-    mods = 'SHIFT|SUPER',
-    action = action.PaneSelect {},
-  },
-  {
     key = 'h',
-    mods = 'SHIFT|SUPER',
+    mods = 'LEADER',
     action = action.ActivatePaneDirection 'Left',
   },
   {
     key = 'l',
-    mods = 'SHIFT|SUPER',
+    mods = 'LEADER',
     action = action.ActivatePaneDirection 'Right',
   },
   {
     key = 'k',
-    mods = 'SHIFT|SUPER',
+    mods = 'LEADER',
     action = action.ActivatePaneDirection 'Up',
   },
   {
     key = 'j',
-    mods = 'SHIFT|SUPER',
+    mods = 'LEADER',
     action = action.ActivatePaneDirection 'Down',
   },
   {
-    key = 'Z',
-    mods = 'CTRL|SHIFT',
+    key = 'z',
+    mods = 'LEADER',
     action = action.TogglePaneZoomState,
   },
 }
