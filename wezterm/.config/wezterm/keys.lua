@@ -29,14 +29,13 @@ return {
     mods = 'LEADER',
     action = action.CloseCurrentTab { confirm = true },
   },
-  -- TODO: see if it works on Linux
   {
-    key = '[',
+    key = 'p',
     mods = 'LEADER',
     action = action.ActivateTabRelative(-1),
   },
   {
-    key = ']',
+    key = 'n',
     mods = 'LEADER',
     action = action.ActivateTabRelative(1),
   },
