@@ -151,6 +151,7 @@ return {
         typescriptreact = { 'prettier' },
         typescript = { 'prettier' },
         c = { 'clang-format' },
+        css = { 'prettier' },
       },
     },
   },
