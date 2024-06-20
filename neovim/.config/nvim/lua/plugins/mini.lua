@@ -31,7 +31,7 @@ return {
 
       local miniclue = require 'mini.clue'
       miniclue.setup {
-        delay = 750,
+        delay = 500,
         triggers = {
           -- Leader triggers
           { mode = 'n', keys = '<Leader>' },
@@ -69,7 +69,10 @@ return {
         },
 
         clues = {
-          -- Enhance this by adding descriptions for <Leader> mapping groups
+          {
+            { mode = 'n', keys = '<Leader>h', desc = 'Harpoon' },
+            { mode = 'n', keys = '<Leader>n', desc = 'Neorg' },
+          },
           miniclue.gen_clues.builtin_completion(),
           miniclue.gen_clues.g(),
           miniclue.gen_clues.marks(),
@@ -84,7 +87,6 @@ return {
       vim.notify = MiniNotifty.make_notify {}
 
       local MiniBufferremove = require 'mini.bufremove'
-
       MiniBufferremove.setup()
 
       vim.keymap.set('n', '<leader>w', function()
