@@ -24,7 +24,6 @@ if show_colums then
     },
     { 'size', highlight = 'Special' },
     { 'mtime', highlight = 'Number' },
-    'icon',
   }
 end
 
