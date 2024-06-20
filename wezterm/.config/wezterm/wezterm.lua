@@ -15,7 +15,7 @@ config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = false
 
 -- window
-config.window_decorations = 'RESIZE'
+config.window_decorations = 'NONE'
 
 -- colors
 config.color_scheme = 'zenwritten_light'
