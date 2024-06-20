@@ -31,6 +31,7 @@ return {
 
       local miniclue = require 'mini.clue'
       miniclue.setup {
+        delay = 750,
         triggers = {
           -- Leader triggers
           { mode = 'n', keys = '<Leader>' },
@@ -61,6 +62,10 @@ return {
           -- `z` key
           { mode = 'n', keys = 'z' },
           { mode = 'x', keys = 'z' },
+
+          -- bracketed
+          { mode = 'n', keys = ']' },
+          { mode = 'n', keys = '[' },
         },
 
         clues = {
