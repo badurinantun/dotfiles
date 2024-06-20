@@ -73,7 +73,7 @@ return {
             { mode = 'n', keys = '<Leader>h', desc = 'Harpoon' },
             { mode = 'n', keys = '<Leader>n', desc = 'Neorg' },
             { mode = 'n', keys = '<Leader>d', desc = 'Document' },
-            { mode = 'n', keys = '<Leader>n', desc = 'Project' },
+            { mode = 'n', keys = '<Leader>p', desc = 'Project' },
           },
           miniclue.gen_clues.builtin_completion(),
           miniclue.gen_clues.g(),
