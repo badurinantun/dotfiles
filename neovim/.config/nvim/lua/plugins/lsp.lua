@@ -38,16 +38,6 @@ local language_servers = {
 
 return {
   {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    config = function()
-      require('copilot').setup {
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      }
-    end,
-  },
-  {
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
@@ -58,12 +48,6 @@ return {
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-      {
-        'zbirenbaum/copilot-cmp',
-        config = function()
-          require('copilot_cmp').setup()
-        end,
-      },
     },
     config = function()
       local cmp = require 'cmp'
@@ -90,7 +74,6 @@ return {
           ['<C-y>'] = cmp.mapping.confirm { select = true },
         },
         sources = {
-          { name = 'copilot' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
