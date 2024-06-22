@@ -4,6 +4,7 @@ return {
     build = ':TSUpdate',
     opts = {
       ensure_installed = { 'graphql', 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'vim', 'vimdoc' },
+      ignore_install = { 'org' },
       autotag = true,
       auto_install = true,
       highlight = {
