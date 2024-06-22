@@ -49,3 +49,6 @@ vim.opt.wildoptions = 'fuzzy'
 
 -- Hidden
 vim.opt.hidden = false
+
+-- Disable mouse
+vim.opt.mouse = ""
