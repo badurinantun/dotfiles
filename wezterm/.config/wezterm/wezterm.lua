@@ -18,7 +18,7 @@ config.tab_bar_at_bottom = false
 config.window_decorations = 'NONE'
 
 -- colors
-config.color_scheme = 'zenwritten_light'
+config.color_scheme = 'zenwritten_dark'
 
 config.color_schemes = {
   ['zenwritten_light'] = require('color_schemes.zenwritten_light').scheme,
