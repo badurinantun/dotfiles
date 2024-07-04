@@ -1,19 +1,20 @@
 local M = {}
 
 local colors = {
-  foreground = '#bbbbbb',
-  background = '#191919',
-  cursor_bg = '#c9c9c9',
-  cursor_border = '#c9c9c9',
-  cursor_fg = '#191919',
-  selection_bg = '#404040',
-  selection_fg = '#bbbbbb',
-  ansi = { '#191919', '#de6e7c', '#819b69', '#b77e64', '#6099c0', '#b279a7', '#66a5ad', '#bbbbbb' },
-  brights = { '#3d3839', '#e8838f', '#8bae68', '#d68c67', '#61abda', '#cf86c1', '#65b8c1', '#8e8e8e' },
+  foreground = "#353535",
+  background = "#f0f0ca",
+  cursor_bg = "#353535",
+  cursor_border = "#353535",
+  cursor_fg = "#f0f0ca",
+  selection_bg = "#d7d7d7",
+  selection_fg = "#353535",
+
+  ansi = { "#f0f0ca", "#a8334c", "#4f6c31", "#944927", "#286486", "#88507d", "#3b8992", "#353535" },
+  brights = { "#c6c6a3", "#94253e", "#3f5a22", "#803d1c", "#1d5573", "#7b3b70", "#2b747c", "#5c5c5c" },
 }
 
 local wezterm = require 'wezterm'
-local scheme = wezterm.get_builtin_color_schemes()['zenwritten_dark']
+local scheme = wezterm.get_builtin_color_schemes()['vimbones']
 
 scheme.cursor_bg = colors.cursor_bg
 scheme.selection_fg = colors.foreground
