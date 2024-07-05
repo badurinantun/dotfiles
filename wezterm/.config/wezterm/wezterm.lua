@@ -11,7 +11,7 @@ config.tab_max_width = 64
 config.use_fancy_tab_bar = false
 config.switch_to_last_active_tab_when_closing_tab = true
 config.show_new_tab_button_in_tab_bar = false
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = false
 
 -- window
