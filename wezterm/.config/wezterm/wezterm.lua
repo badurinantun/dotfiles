@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 -- general
-config.font_size = 11.0
+config.font_size = 12.0
 config.enable_wayland = true
 
 -- tabs
