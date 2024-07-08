@@ -21,15 +21,7 @@ config.window_decorations = 'NONE'
 config.color_scheme = 'kanagawabones'
 
 config.color_schemes = {
-  ['vimbones'] = require('color_schemes.vimbones').scheme,
   ['kanagawabones'] = require('color_schemes.kanagawabones').scheme,
-  ['zenburned'] = require('color_schemes.zenburned').scheme,
-  ['rosebones_dark'] = require('color_schemes.rosebones_dark').scheme,
-  ['rosebones_light'] = require('color_schemes.rosebones_light').scheme,
-  ['zenwritten_dark'] = require('color_schemes.zenwritten_dark').scheme,
-  ['zenwritten_light'] = require('color_schemes.zenwritten_light').scheme,
-  ['neobones_dark'] = require('color_schemes.neobones_dark').scheme,
-  ['neobones_light'] = require('color_schemes.neobones_light').scheme,
 }
 
 -- keys
