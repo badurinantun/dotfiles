@@ -1,21 +1,20 @@
 local M = {}
 
 local colors = {
-  foreground = "#353535",
-  background = "#f0f0ca",
-  cursor_bg = "#353535",
-  cursor_border = "#353535",
-  cursor_fg = "#f0f0ca",
-  selection_bg = "#d7d7d7",
-  selection_fg = "#353535",
+  foreground = '#ddd8bb',
+  background = '#1f1f28',
+  cursor_bg = '#e6e0c2',
+  cursor_border = '#e6e0c2',
+  cursor_fg = '#1f1f28',
+  selection_bg = '#49473e',
+  selection_fg = '#ddd8bb',
 
-  -- white, red, green, orange, blue, purple, cyan, black
-  ansi = { "#f0f0ca", "#a8334c", "#4f6c31", "#944927", "#286486", "#88507d", "#3b8992", "#353535" },
-  brights = { "#c6c6a3", "#94253e", "#3f5a22", "#803d1c", "#1d5573", "#7b3b70", "#2b747c", "#5c5c5c" },
+  ansi = { '#1f1f28', '#e46a78', '#98bc6d', '#e5c283', '#7eb3c9', '#957fb8', '#7eb3c9', '#ddd8bb' },
+  brights = { '#3c3c51', '#ec818c', '#9ec967', '#f1c982', '#7bc2df', '#a98fd2', '#7bc2df', '#a8a48d' },
 }
 
 local wezterm = require 'wezterm'
-local scheme = wezterm.get_builtin_color_schemes()['vimbones']
+local scheme = wezterm.get_builtin_color_schemes()['kanagawabones']
 
 scheme.cursor_bg = colors.cursor_bg
 scheme.selection_fg = colors.foreground

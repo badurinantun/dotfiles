@@ -18,10 +18,10 @@ config.tab_bar_at_bottom = false
 config.window_decorations = 'RESIZE'
 
 -- colors
-config.color_scheme = 'vimbones'
+config.color_scheme = 'kanagawabones'
 
 config.color_schemes = {
-  ['vimbones'] = require('color_schemes.vimbones').scheme,
+  ['kanagawabones'] = require('color_schemes.kanagawabones').scheme,
 }
 
 -- keys
