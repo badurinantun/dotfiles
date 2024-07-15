@@ -23,11 +23,11 @@ cmd + alt - c : yabai -m space --create && yabai -m space --focus last
 # navigation
 cmd + alt - b : yabai -m space --focus prev || yabai -m space --focus last
 cmd + alt - n : yabai -m space --focus next || yabai -m space --focus first
-cmd + alt - 1 : yabai -m space --focus 1
-cmd + alt - 2 : yabai -m space --focus 2
-cmd + alt - 3 : yabai -m space --focus 3
-cmd + alt - 4 : yabai -m space --focus 4
-cmd + alt - 5 : yabai -m space --focus 5
+cmd - 1 : yabai -m space --focus 1
+cmd - 2 : yabai -m space --focus 2
+cmd - 3 : yabai -m space --focus 3
+cmd - 4 : yabai -m space --focus 4
+cmd - 5 : yabai -m space --focus 5
 
 # balance
 cmd + alt + lctrl - return : yabai -m space --balance
