@@ -21,6 +21,7 @@ return {
     config = function()
       local neogit = require 'neogit'
       neogit.setup {
+        disable_hint = true,
         graph_style = 'unicode',
         ---@diagnostic disable-next-line: assign-type-mismatch
         kind = 'replace',
