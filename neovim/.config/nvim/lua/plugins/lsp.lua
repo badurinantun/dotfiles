@@ -8,7 +8,7 @@ local language_servers = {
   },
   tailwindcss = {},
   eslint = {},
-  tsserver = {},
+  ts_ls = {},
   clangd = {
     cmd = {
       'clangd',
@@ -78,7 +78,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
-          { name = 'orgmode' }
+          { name = 'orgmode' },
         },
       }
     end,
