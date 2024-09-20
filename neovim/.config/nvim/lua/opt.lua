@@ -11,7 +11,7 @@ vim.opt.relativenumber = true
 vim.opt.fillchars = { eob = ' ' }
 
 -- Hide mode
-vim.opt.showmode = false
+vim.opt.showmode = true
 
 -- Sync clipboard between OS and Neovim
 vim.opt.clipboard = 'unnamedplus'
@@ -51,4 +51,4 @@ vim.opt.wildoptions = 'fuzzy'
 vim.opt.hidden = false
 
 -- Disable mouse
-vim.opt.mouse = ""
+vim.opt.mouse = ''

@@ -1,5 +1,3 @@
-local utils = require 'utils'
-
 return {
   {
     'nvim-telescope/telescope.nvim',
@@ -50,15 +48,6 @@ return {
           no_ignore = true,
         }
       end, { desc = 'Find all files' })
-
-      vim.api.nvim_create_autocmd('VimEnter', {
-        pattern = '*',
-        callback = function()
-          if utils.show_telescope_on_startup() then
-            vim.cmd 'Telescope find_files'
-          end
-        end,
-      })
     end,
   },
 }
