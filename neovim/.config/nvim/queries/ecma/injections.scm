@@ -42,17 +42,6 @@
     (#set! injection.include-children)
     (#set! injection.language "graphql")))
 
-(call_expression
-  function: ((identifier) @_name
-    (#eq? @_name "hbs"))
-  arguments: ((template_string) @injection.content
-    (#offset! @injection.content 0 1 0 -1)
-    (#set! injection.include-children)
-    (#set! injection.language "glimmer")))
-
-((glimmer_template) @injection.content
-  (#set! injection.language "glimmer"))
-
 ; css`<css>`, keyframes`<css>`
 (call_expression
   function: (identifier) @_name

@@ -1,29 +1,4 @@
 local language_servers = {
-  astro = {
-    init_options = {
-      typescript = {
-        tsdk = vim.fs.normalize '~/Library/pnpm/global/5/node_modules/typescript/lib',
-      },
-    },
-  },
-  tailwindcss = {},
-  eslint = {},
-  ts_ls = {},
-  clangd = {
-    cmd = {
-      'clangd',
-      '--offset-encoding=utf-16',
-    },
-  },
-  rust_analyzer = {
-    settings = {
-      ['rust-analyzer'] = {
-        checkOnSave = {
-          command = 'clippy',
-        },
-      },
-    },
-  },
   lua_ls = {
     settings = {
       Lua = {
@@ -34,7 +9,6 @@ local language_servers = {
     },
   },
   ols = {},
-  zls = {},
 }
 
 return {
@@ -140,20 +114,8 @@ return {
           lsp_fallback = true,
         }
       end,
-      formatters = {
-        prettier = {
-          prepend_args = { '--config', '.prettierrc' },
-        },
-      },
       formatters_by_ft = {
-        rust = { 'rustfmt' },
         lua = { 'stylua' },
-        astro = { 'prettier' },
-        javascript = { 'prettier' },
-        typescriptreact = { 'prettier' },
-        typescript = { 'prettier' },
-        c = { 'clang-format' },
-        css = { 'prettier' },
       },
     },
   },
