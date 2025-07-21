@@ -6,5 +6,4 @@ return {
     event = { 'CursorMoved', 'WinScrolled' },
     opts = {},
   },
-  { 'kevinhwang91/nvim-bqf' },
 }
