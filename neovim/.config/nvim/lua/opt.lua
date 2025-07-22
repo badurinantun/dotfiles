@@ -1,11 +1,12 @@
--- Show line numbers
+-- Use terminal colors
+vim.opt.termguicolors = false
+
+-- Line numbers
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Make tabs 4 spaces long
 vim.opt.tabstop = 4
-
--- Relative line numbers
-vim.opt.relativenumber = true
 
 -- Fill chars
 vim.opt.fillchars = { eob = ' ' }
@@ -52,3 +53,8 @@ vim.opt.hidden = false
 
 -- Disable mouse
 vim.opt.mouse = ''
+
+-- Netrw
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
+
