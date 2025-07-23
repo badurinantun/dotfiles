@@ -7,7 +7,7 @@ vim.g.maplocalleader = ' '
 -- Nerd fonts
 vim.g.have_nerd_font = true
 
--- Use terminal colors
+-- Disable terminal GUI colors
 vim.opt.termguicolors = false
 
 -- Hide number
@@ -40,14 +40,14 @@ vim.opt.wildoptions = 'fuzzy'
 -- Hidden
 vim.opt.hidden = false
 
--- Make tabs 4 spaces long
-vim.opt.tabstop = 4
-
 -- Decrese mapped sequence wait time
 vim.opt.timeoutlen = 300
 
 -- Disable mouse
 vim.opt.mouse = ''
+
+-- Tabs
+vim.opt.tabstop = 4
 
 -- Netrw
 vim.g.netrw_banner = 0
@@ -85,76 +85,16 @@ end
 
 require('mini.deps').setup({ path = { package = path_package } })
 
-require('mini.basics').setup()
-
 require('mini.notify').setup()
 
-local miniclue = require('mini.clue')
+require('mini.basics').setup()
 
-miniclue.setup({
-  triggers = {
-    -- Leader triggers
-    { mode = 'n', keys = '<Leader>' },
-    { mode = 'x', keys = '<Leader>' },
+vim.cmd("filetype off")
+vim.cmd("syntax off")
+		
 
-    -- Built-in completion
-    { mode = 'i', keys = '<C-x>' },
 
-    -- `g` key
-    { mode = 'n', keys = 'g' },
-    { mode = 'x', keys = 'g' },
 
-    -- Marks
-    { mode = 'n', keys = "'" },
-    { mode = 'n', keys = '`' },
-    { mode = 'x', keys = "'" },
-    { mode = 'x', keys = '`' },
 
-    -- Registers
-    { mode = 'n', keys = '"' },
-    { mode = 'x', keys = '"' },
-    { mode = 'i', keys = '<C-r>' },
-    { mode = 'c', keys = '<C-r>' },
 
-    -- Window commands
-    { mode = 'n', keys = '<C-w>' },
 
-    -- `z` key
-    { mode = 'n', keys = 'z' },
-    { mode = 'x', keys = 'z' },
-  },
-
-  clues = {
-    -- Enhance this by adding descriptions for <Leader> mapping groups
-    miniclue.gen_clues.builtin_completion(),
-    miniclue.gen_clues.g(),
-    miniclue.gen_clues.marks(),
-    miniclue.gen_clues.registers(),
-    miniclue.gen_clues.windows(),
-    miniclue.gen_clues.z(),
-  },
-})
-
-local add, now = MiniDeps.add, MiniDeps.now
-
-add('tpope/vim-sleuth')
-
-now(function()
-  add({
-    source = 'nvim-treesitter/nvim-treesitter',
-    hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
-  })
-
-  require('nvim-treesitter.configs').setup({
-    ensure_installed = { 'bash', 'c', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'vim', 'vimdoc' },
-    sync_install = true,
-    ignore_install = {},
-    autotag = true,
-    auto_install = true,
-    highlight = {
-      enable = true,
-    },
-    indent = { enable = false },
-    modules = {}
-  })
-end)
