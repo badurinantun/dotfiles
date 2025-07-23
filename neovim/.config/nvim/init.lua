@@ -53,37 +53,6 @@ vim.opt.mouse = ''
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
---[[ LSP ]]
-
-vim.lsp.enable {
-  'lua_ls',
-}
-
-vim.diagnostic.config({
-  virtual_text = true,
-})
-
--- Set up keybindings for LSP
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(event)
-    local opts = { buffer = event.buf }
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', 'g.', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'grn', vim.lsp.buf.rename, opts)
-
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      pattern = '*.lua',
-      group = vim.api.nvim_create_augroup('LuaFormat', { clear = true }),
-      callback = function(args)
-        vim.lsp.buf.format({ bufnr = args.buf, async = false })
-      end,
-    })
-  end,
-})
-
-
 --[[ KEYMAPS ]]
 
 vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Close' })
