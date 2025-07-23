@@ -1,3 +1,5 @@
+-- [[ OPTIONS ]]
+
 -- Set <space> as the leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -5,20 +7,101 @@ vim.g.maplocalleader = ' '
 -- Nerd fonts
 vim.g.have_nerd_font = true
 
--- options
-require 'opt'
+-- Use terminal colors
+vim.opt.termguicolors = false
 
--- keymaps
-require 'keymap'
+-- Hide number
+vim.opt.number = false
+
+-- Show ruler
+vim.opt.ruler = true
+
+-- Show mode
+vim.opt.showmode = true
+
+-- Sync clipboard between OS and Neovim
+vim.opt.clipboard = 'unnamedplus'
+
+-- Decrease update time
+vim.opt.updatetime = 250
+
+-- Set scroll buffer when going up and down
+vim.opt.scrolloff = 10
+
+-- Make cursor block
+vim.opt.guicursor = ''
+
+-- Hightlight search
+vim.opt.hlsearch = true
+
+-- Wildmenu
+vim.opt.wildoptions = 'fuzzy'
+
+-- Hidden
+vim.opt.hidden = false
+
+-- Make tabs 4 spaces long
+vim.opt.tabstop = 4
+
+-- Decrese mapped sequence wait time
+vim.opt.timeoutlen = 300
+
+-- Disable mouse
+vim.opt.mouse = ''
+
+-- Netrw
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3
+
+--[[ LSP ]]
 
 vim.lsp.enable {
   'lua_ls',
 }
 
+vim.diagnostic.config({
+  virtual_text = true,
+})
+
+-- Set up keybindings for LSP
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(event)
+    local opts = { buffer = event.buf }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'g.', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'grn', vim.lsp.buf.rename, opts)
+
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      pattern = '*.lua',
+      group = vim.api.nvim_create_augroup('LuaFormat', { clear = true }),
+      callback = function(args)
+        vim.lsp.buf.format({ bufnr = args.buf, async = false })
+      end,
+    })
+  end,
+})
+
+
+--[[ KEYMAPS ]]
+
+vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Close' })
+
+-- Clear search highlights
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Explorer
+vim.keymap.set('n', '<leader>e', ':Ex<CR>', { desc = 'Explorer' })
+
+
+--[[ PLUGINS ]]
+
 -- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
 local path_package = vim.fn.stdpath('data') .. '/site/'
 local mini_path = path_package .. 'pack/deps/start/mini.nvim'
 
+---@diagnostic disable-next-line: undefined-field
 if not vim.loop.fs_stat(mini_path) then
   vim.cmd('echo "Installing `mini.nvim`" | redraw')
   local clone_cmd = {
@@ -30,30 +113,79 @@ if not vim.loop.fs_stat(mini_path) then
   vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
 
--- Set up 'mini.deps' 
+
 require('mini.deps').setup({ path = { package = path_package } })
 
+require('mini.basics').setup()
 
 require('mini.notify').setup()
 
-MiniDeps.add('tpope/vim-sleuth')
+local miniclue = require('mini.clue')
 
-MiniDeps.add({
-  source = 'nvim-treesitter/nvim-treesitter',
-  -- Use 'master' while monitoring updates in 'main'
-  checkout = 'master',
-  monitor = 'main',
-  -- Perform action after every checkout
-  hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
-})
+miniclue.setup({
+  triggers = {
+    -- Leader triggers
+    { mode = 'n', keys = '<Leader>' },
+    { mode = 'x', keys = '<Leader>' },
 
-require('nvim-treesitter.configs').setup({
-  ensure_installed = {  'bash', 'c', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'vim', 'vimdoc' },
-  autotag = true,
-  auto_install = true,
-  highlight = {
-    enable = true,
+    -- Built-in completion
+    { mode = 'i', keys = '<C-x>' },
+
+    -- `g` key
+    { mode = 'n', keys = 'g' },
+    { mode = 'x', keys = 'g' },
+
+    -- Marks
+    { mode = 'n', keys = "'" },
+    { mode = 'n', keys = '`' },
+    { mode = 'x', keys = "'" },
+    { mode = 'x', keys = '`' },
+
+    -- Registers
+    { mode = 'n', keys = '"' },
+    { mode = 'x', keys = '"' },
+    { mode = 'i', keys = '<C-r>' },
+    { mode = 'c', keys = '<C-r>' },
+
+    -- Window commands
+    { mode = 'n', keys = '<C-w>' },
+
+    -- `z` key
+    { mode = 'n', keys = 'z' },
+    { mode = 'x', keys = 'z' },
   },
-  indent = { enable = false },
+
+  clues = {
+    -- Enhance this by adding descriptions for <Leader> mapping groups
+    miniclue.gen_clues.builtin_completion(),
+    miniclue.gen_clues.g(),
+    miniclue.gen_clues.marks(),
+    miniclue.gen_clues.registers(),
+    miniclue.gen_clues.windows(),
+    miniclue.gen_clues.z(),
+  },
 })
 
+local add, now = MiniDeps.add, MiniDeps.now
+
+add('tpope/vim-sleuth')
+
+now(function()
+  add({
+    source = 'nvim-treesitter/nvim-treesitter',
+    hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
+  })
+
+  require('nvim-treesitter.configs').setup({
+    ensure_installed = { 'bash', 'c', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'vim', 'vimdoc' },
+    sync_install = true,
+    ignore_install = {},
+    autotag = true,
+    auto_install = true,
+    highlight = {
+      enable = true,
+    },
+    indent = { enable = false },
+    modules = {}
+  })
+end)
