@@ -45,6 +45,9 @@ vim.opt.mouse = ''
 
 -- Tabs
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+
 
 -- Netrw
 vim.g.netrw_banner = 0
@@ -83,8 +86,8 @@ end
 require('mini.deps').setup({ path = { package = path_package } })
 
 require('mini.notify').setup()
-
 require('mini.basics').setup()
+require('mini.pairs').setup()
 
 vim.cmd("filetype off")
 vim.cmd("syntax off")
