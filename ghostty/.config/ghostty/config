@@ -1,3 +1,4 @@
-theme = "Man Page"
-font-family = "Iosevka Term"
+theme = "neobones_light"
+font-family = "InconsolataGo Nerd Font Propo"
+font-size = 14
 
