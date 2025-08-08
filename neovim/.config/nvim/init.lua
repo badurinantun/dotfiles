@@ -35,7 +35,7 @@ vim.opt.hlsearch = true
 vim.opt.wildoptions = 'fuzzy'
 
 -- Hidden
-vim.opt.hidden = false
+vim.opt.hidden = true
 
 -- Disable mouse
 vim.opt.mouse = ''
@@ -45,20 +45,10 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
--- Disable Netrw
-vim.g.loaded_netrw = 1
-
 --[[ KEYMAPS ]]
 
 -- Clear search highlights
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
-vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Close' })
-vim.keymap.set('n', '<leader>e', ':lua MiniFiles.open()<CR>', { desc = 'Explorer' })
-vim.keymap.set('n', '<leader>p', ':Pick files<CR>', { desc = 'Project files' })
-vim.keymap.set('n', '<leader>b', ':Pick buffers<CR>', { desc = 'Buffers' })
-vim.keymap.set('n', '<leader>h', ':Pick help<CR>', { desc = 'Help' })
-vim.keymap.set('n', '<leader>f', ':Pick grep_live<CR>', { desc = 'Grep' })
 
 --[[ PLUGINS ]]
 
@@ -82,33 +72,28 @@ MiniDeps.setup({ path = { package = path_package } })
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
 now(function()
-	add({ source = 'echasnovski/mini.notify', checkout = 'stable' })
-	add({ source = 'echasnovski/mini.ai', checkout = 'stable' })
-	add({ source = 'echasnovski/mini.comment', checkout = 'stable' })
-	add({ source = 'echasnovski/mini.pick', checkout = 'stable' })
-	add({ source = 'echasnovski/mini.surround', checkout = 'stable' })
-	add({ source = 'echasnovski/mini.files', checkout = 'stable' })
-
-	require('mini.notify').setup()
-	vim.notify = require('mini.notify').make_notify()
+	add({ source = 'stevearc/oil.nvim'})
+	vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+	require('oil').setup()
 end)
 
 later(function()
-	vim.cmd('colorscheme quiet')
+	-- vim.cmd('colorscheme quiet')
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-	vim.api.nvim_set_hl(0, "CursorLine", { link = "Visual" })
+	vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
 end)
 
 later(function()
-	require('mini.ai').setup()
-	require('mini.comment').setup()
-	require('mini.pick').setup()
-	require('mini.files').setup()
-	require('mini.surround').setup()
+	add({ source = 'echasnovski/mini.ai', checkout = 'stable' })
+	add({ source = 'echasnovski/mini.bracketed', checkout = 'stable' })
+	add({ source = 'echasnovski/mini.comment', checkout = 'stable' })
+	add({ source = 'echasnovski/mini.surround', checkout = 'stable' })
 
-	vim.api.nvim_set_hl(0, "MiniPickBorder", { bg = "none" })
-	vim.api.nvim_set_hl(0, "MiniFilesBorder", { bg = "none" })
+	require('mini.ai').setup()
+	require('mini.bracketed').setup()
+	require('mini.comment').setup()
+	require('mini.surround').setup()
 end)
 
 later(function()
